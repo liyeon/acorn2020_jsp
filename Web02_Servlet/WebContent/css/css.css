@@ -1,0 +1,56 @@
+@charset "utf-8";/*한글인코딩설정*/
+#console{
+    font-size: 20px;
+    font-weight: 900;
+    color : #a1baff;
+}
+input {
+    border : 3px solid #a1baff;
+    padding : 5px;
+    width : 150px;
+    height : 30px;
+    line-height: 30px;
+    margin : 0;
+    float : left;
+}
+input:focus{
+ outline: none;;
+}
+button:focus{
+    outline: none;
+}
+button {
+    height :46px;
+    cursor: pointer;
+    display: inline-block;
+    padding : 9px 10px;
+    
+    background: #a1baff;
+    border: none;;
+    font-weight: bold;;
+    font-size: 20px;
+    color : #fff;
+    margin-left : 10px;
+    
+}
+table{
+    border :1px solid #000000;
+    border-collapse :collapse ;
+}
+
+table td, th{
+    border :1px solid #e74d4d; ;
+}
+td{
+    text-align : center;
+    padding : 10px 10px;
+}
+th {
+    background : #ffe7e7;
+    color : #f56060;
+    padding : 10px 40px;
+}
+tbody > tr:hover {
+    background : #ffa0a0;
+    cursor : pointer;
+}

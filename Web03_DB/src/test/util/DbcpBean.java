@@ -10,6 +10,7 @@ import javax.sql.DataSource;
  * [Data Base Connection Poll Bean]
  * 
  * context, InitialConText - naming pack
+ * DataSource - sql
  */
 public class DbcpBean {
 	//필드
