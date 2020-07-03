@@ -4,12 +4,10 @@
 <%@page import="test.board.dto.BoardDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%
+<%
 	BoardDao dao = BoardDao.getInstance();
-	List<BoardDto> list = dao.getList();
-	
-	
-	%>
+List<BoardDto> list = dao.getList();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,17 +44,23 @@
 				<th>수정</th>
 				<th>삭제</th>
 			</tr>
-			
-			<%for(BoardDto tmp:list){%>
+
+			<%
+				for (BoardDto tmp : list) {
+			%>
 			<tr>
-			<td><%=tmp.getNum() %></td>
-			<td><%=tmp.getTitle() %></td>
-			<td><%=tmp.getName() %></td>
-			<td><%=tmp.getRegdate() %></td>
-			<td><a href="updateform.jsp?num=<%= tmp.getNum() %>" class="btn btn-info font-weight-bolder">수정</a></td>
-			<td><a href="delete.jsp?num=<%= tmp.getNum() %>" class="btn btn-dark">삭제</a></td>
+				<td><%=tmp.getNum()%></td>
+				<td><%=tmp.getTitle()%></td>
+				<td><%=tmp.getName()%></td>
+				<td><%=tmp.getRegdate()%></td>
+				<td><a href="updateform.jsp?num=<%=tmp.getNum()%>"
+					class="btn btn-info font-weight-bolder">수정</a></td>
+				<td><a href="delete.jsp?num=<%=tmp.getNum()%>"
+					class="btn btn-dark">삭제</a></td>
 			</tr>
-			<%}%>
+			<%
+				}
+			%>
 
 
 		</table>
