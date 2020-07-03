@@ -24,4 +24,9 @@ public class DBcpBean {
 		}
 		
 	}
+
+	//Connection 객체를 리턴해주는 메소드
+	public Connection getConn() {
+		return conn;
+	}
 }
