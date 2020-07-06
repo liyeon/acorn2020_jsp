@@ -9,9 +9,10 @@
 	href="${pageContext.request.contextPath }/css/bootstrap.css" />
 </head>
 <style>
+btn:hover {
+	
+}
 
-	btn:hover{
-	}
 body {
 	font-family: "NEXON Lv2 Gothic Bold!important";
 }
@@ -20,12 +21,18 @@ body {
 	<div class="container mt-4">
 		<div class="navbar navbar-expand-sm navbar-dark bg-warning mb-4">
 
-				<a href="${pageContext.request.contextPath }/" class="navbar-brand">Acorn</a>
-				<ul class="navbar-nav">
-					<li class="nav-item"><a href="${pageContext.request.contextPath }/member/list.jsp"
-						class="nav-link">MEMBER</a></li>
-					<li class="nav-item"><a href="${pageContext.request.contextPath }/todo/list.jsp" class="nav-link">TODOList</a></li>
-				</ul>
+			<a href="${pageContext.request.contextPath }/" class="navbar-brand">Acorn</a>
+			<ul class="navbar-nav">
+				<li class="nav-item"><a
+					href="${pageContext.request.contextPath }/member/list.jsp"
+					class="nav-link">MEMBER</a></li>
+				<li class="nav-item"><a
+					href="${pageContext.request.contextPath }/todo/list.jsp"
+					class="nav-link">TODOList</a></li>
+				<li class="nav-item"><a
+					href="${pageContext.request.contextPath }/board/list.jsp"
+					class="nav-link">BoardList</a></li>
+			</ul>
 
 		</div>
 		<div class="jumbotron mt-5">
@@ -33,10 +40,18 @@ body {
 			<hr class="my-4">
 			<p class="lead">
 			<ul class="list-inline">
-				<li class="list-inline-item"><a href="${pageContext.request.contextPath }/member/list.jsp"
+				<li class="list-inline-item"><a
+					href="${pageContext.request.contextPath }/member/list.jsp"
 					class="btn btn-hover btn-dark">회원목록보기</a></li>
-				<li class="list-inline-item"><a href="${pageContext.request.contextPath }/todo/list.jsp"
+				<li class="list-inline-item"><a
+					href="${pageContext.request.contextPath }/todo/list.jsp"
 					class="btn btn-hover btn-dark">할 일 목록 보기</a></li>
+				<li class="list-inline-item"><a
+					href="${pageContext.request.contextPath }/board/list.jsp"
+					class="btn btn-hover btn-dark">글 목록 보기</a></li>
+				<li class="list-inline-item"><a
+					href="${pageContext.request.contextPath }/servlet/test"
+					class="btn btn-hover btn-dark">SERVLET</a></li>
 			</ul>
 			</p>
 		</div>

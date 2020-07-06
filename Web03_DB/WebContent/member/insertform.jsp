@@ -32,8 +32,21 @@ button{
 </head>
 <body>
 
+<div class="navbar navbar-expand-sm navbar-dark bg-info mb-4">
 
+				<a href="${pageContext.request.contextPath }/" class="navbar-brand">Acorn</a>
+				<ul class="navbar-nav">
+					<li class="nav-item active"><a href="${pageContext.request.contextPath }/member/list.jsp"
+						class="nav-link">MEMBER</a></li>
+					<li class="nav-item"><a href="${pageContext.request.contextPath }/todo/list.jsp" class="nav-link">TODOList</a></li>
+				</ul>
 
+		</div>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="../index.jsp">HOME</a></li>
+		<li class="breadcrumb-item"><a href="list.jsp">회원목록</a></li>
+		<li class="breadcrumb-item active"><a>추가양식</a></li>
+	</ol>
 	<div class="container mt-4">
 		<h1>회원정보추가폼입니다.</h1>
 		<div class="content">

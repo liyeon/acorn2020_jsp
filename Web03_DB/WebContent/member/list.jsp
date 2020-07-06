@@ -41,6 +41,10 @@
 				</ul>
 
 		</div>
+		<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="../index.jsp">HOME</a></li>
+		<li class="breadcrumb-item"><a>회원목록</a></li>
+	</ol>
 	<h1>회원목록입니다.</h1>
 	<table class="table table-hover table-bordered text-center">
 	<colgroup>
@@ -66,7 +70,7 @@
 				<td><%=tmp.getName() %></td>
 				<td><%=tmp.getAddr() %></td>
 				<td><a href="updateform.jsp?num=<%= tmp.getNum() %>" class="btn btn-info font-weight-bolder">수정</a></td>
-				<td><a href="delete.jsp?num=<%= tmp.getNum() %>" class="btn btn-dark">삭제</a></td>
+				<td><a href="javascript:deleteConfirm(<%= tmp.getNum() %>)" class="btn btn-dark">삭제</a></td>
 			</tr>
 			
 			
@@ -77,5 +81,16 @@
 	</table>
 	<a href="insertform.jsp">회원 추가하러가기</a>
 	</div>
+	<script>
+	//삭제 링크를 눌렀을 때 호출 되는 함수
+	function deleteConfirm(num){
+		var isDelete=confirm(num+" 번 글을 삭제하시겠습니까?");
+		if(isDelete){
+			location.href="delete.jsp?num="+num;
+		}
+	}
+</script>
+	
+	
 </body>
 </html>
