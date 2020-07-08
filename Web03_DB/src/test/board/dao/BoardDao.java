@@ -23,7 +23,6 @@ public class BoardDao {
 			dao = new BoardDao();
 		}return dao;
 	}
-
 	// 글 하나의 정보를 저장하는 메소드
 	public boolean insert(BoardDto dto) {
 		// 필요한 객체의 참조값을 담을 지역변수 만들기
@@ -50,7 +49,7 @@ public class BoardDao {
 		} finally {
 			try {
 				if (pstmt != null)pstmt.close();
-				if (conn != null)conn.close();
+				if (conn != null)conn.close();// Connection 반납하기
 			} catch (Exception e) {}
 		} // fianlly
 		if (flag > 0) {return true;

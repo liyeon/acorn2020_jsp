@@ -15,7 +15,7 @@
 	String job = request.getParameter("job"); // doctor or programmer or etc
 	//input type="checkbox" name="like"에 체크된 value 목록
 	//check된게 없으면 null이 리턴된다.
-	String like[] = request.getParameterValues("like");//같은 parameter명으로 여러개가 전송 될 때
+	String[] like = request.getParameterValues("like");//같은 parameter명으로 여러개가 전송 될 때
 	//textarea name = "comment"에 입력한 문자열
 	String comment = request.getParameter("comment");
 %>    
