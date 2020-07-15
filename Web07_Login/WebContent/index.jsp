@@ -14,7 +14,7 @@
 <div class="container">
 	<%if(id!=null){%>
 		<p>
-			<a href="users/info.jsp"><%=id %></a><strong>님이 로그인중입니다.</strong>
+			<a href="users/private/info.jsp"><%=id %></a><strong>님이 로그인중입니다.</strong>
 			
 			<a href="users/logout.jsp">로그아웃</a>
 		</p>
@@ -24,6 +24,11 @@
 	<ul>
 		<li><a href="users/signup_form.jsp">회원가입</a></li>
 		<li><a href="users/loginform.jsp">로그인</a></li>
+		<li><a href="test/buy.jsp?code=111">1번 상품 구입 테스트</a></li>
+		<li><a href="ajax/test01.jsp">Ajax테스트</a></li>
+		<li><a href="ajax/test02.jsp">Ajax테스트2</a></li>
+		<li><a href="ajax/test03.jsp">Ajax테스트3</a></li>
+		<li><a href="file/list.jsp">자료실 목록 보기</a></li>
 	</ul>
 </div>
 
