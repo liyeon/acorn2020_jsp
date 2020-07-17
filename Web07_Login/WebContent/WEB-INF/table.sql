@@ -14,7 +14,7 @@ CREATE TABLE board_file(
 
 CREATE SEQUENCE board_file_seq;
 
-
+--null 이면 기본 이미지 아니면 이미지 경로 저장
 
 -- 사용자(회원) 정보를 저장할 테이블
 CREATE TABLE users(

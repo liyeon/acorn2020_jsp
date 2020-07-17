@@ -19,7 +19,7 @@
 		 --%>
 		<form action="upload.jsp" method="post" enctype="multipart/form-data" >
 			<label for="title">제목(설명)</label>
-			<input type="text" name="title" id="title" /><br/>
+			<input type="text" name="title" id="title" placeholder="파일 업로드 테스트"/><br/>
 			<label for="myFile">첨부파일</label>
 			<input type="file" name="fyFile" id="myFile" /><br/>
 			<button type="submit">업로드</button>
