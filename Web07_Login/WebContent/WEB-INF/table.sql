@@ -1,4 +1,14 @@
-//upload된 파일의 정보를 저장 할 테이블
+CREATE TABLE board_gallery(
+	num NUMBER PRIMARY KEY,
+	writer VARCHAR2(100),
+	caption VARCHAR2(100),
+	imagePath VARCHAR2(100),
+	regdate DATE 
+);
+
+CREATE SEQUENCE board_gqllery_seq;
+
+--upload된 파일의 정보를 저장 할 테이블
 CREATE TABLE board_file(
 	num NUMBER PRIMARY KEY,
 	writer VARCHAR2(100) NOT NULL,

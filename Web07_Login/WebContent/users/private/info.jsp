@@ -13,6 +13,10 @@
 <meta charset="UTF-8">
 <title>users/private/info.jsp</title>
 <link rel="stylesheet" href="../css/bootstrap.css" />
+<style>
+	.profile {width : 200px; height : 200px; display : inline-block;border-radius : 50%;}
+	#profileImage {width : 100%; height : 100%;object-fit : cover; }
+</style>
 </head>
 <body>
 	<div class="container">
@@ -21,6 +25,15 @@
 			<tr>
 				<th>아이디</th>
 				<td><%=dto.getId() %></td>
+			</tr>
+			<tr>
+				<th>프로필 이미지</th>
+				<td>
+				<div class="profile">
+				<img id="profileImage"
+				src="${pageContext.request.contextPath }<%=dto.getProfile()%>" alt="" />
+				</div>
+				</td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
