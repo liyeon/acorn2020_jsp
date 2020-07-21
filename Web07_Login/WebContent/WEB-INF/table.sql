@@ -1,3 +1,12 @@
+SELECT *
+FROM(SELECT RESULT1.*, ROWNUM AS RNUM
+	 FROM(SELECT * FROM board_file
+	 	  ORDER BY num DESC) RESULT1);
+	 	  -- 
+WHERE RNUM BETWEEN 1 AND 5;
+-- 6 AND 10 (2PAGE), 11 AND 15(3PAGE)  
+
+
 CREATE TABLE board_gallery(
 	num NUMBER PRIMARY KEY,
 	writer VARCHAR2(100),
@@ -6,7 +15,7 @@ CREATE TABLE board_gallery(
 	regdate DATE 
 );
 
-CREATE SEQUENCE board_gqllery_seq;
+CREATE SEQUENCE board_gallery_seq;
 
 --upload된 파일의 정보를 저장 할 테이블
 CREATE TABLE board_file(

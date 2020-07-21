@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>/gallery/private/upload_form.jsp</title>
-
 </head>
 <body>
 	<div class="container">
