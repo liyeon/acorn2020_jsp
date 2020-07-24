@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>my_form.jsp</title>
-<script src="${pageContext.request.contextPath }/js/jquery-3.5.1.js"></script>
 </head>
 <body>
 	<form action="save.jsp" method="post" id="myForm">
@@ -17,9 +16,6 @@
 		<button type="submit">전송</button>
 	</form>
 	<script src="${pageContext.request.contextPath }/js/jquery-3.5.1.js"></script>
-	
-	
-	
 	<script>
 	$("#myForm").on("submit", function(){
 		var action = $(this).attr("action"); 
@@ -36,11 +32,6 @@
 		});
 		return false;
 	});
-	
-	
-	
-	
 </script>
-	
 </body>
 </html>
