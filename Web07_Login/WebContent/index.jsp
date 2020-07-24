@@ -33,6 +33,8 @@
 		<li><a href="gallery/test2.jsp">ajax이미지 업로드 테스트</a></li>	
 		<li><a href="gallery/list.jsp">이미지 갤러리</a></li>	
 		<li><a href="text/editer.jsp">스마트에디터테스트</a></li>
+		<li><a href="cafe/list.jsp">카페 글 목록 보기</a></li>
+		<li><a href="test/scroll.jsp">scroll테스트</a></li>
 	</ul>
 </div>
 

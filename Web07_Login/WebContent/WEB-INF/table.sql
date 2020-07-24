@@ -2,10 +2,29 @@ CREATE TABLE board_cafe(
 	num NUMBER PRIMARY KEY,
 	writer VARCHAR2(100) NOT NULL,
 	title VARCHAR2(100) NOT NULL,
-	content CLOB,
-	viewCount NUMBER, --조회수
+	content CLOB, -- smartEditor 문자열
+	viewCount NUMBER, --조회수  
 	regdate DATE
 );
+
+
+SELECT result1.*
+FROM
+	(SELECT NUM, WRITER, TITLE,
+	LEAD(num, 1, 0) OVER (ORDER BY num DESC) AS prevNum,
+	Lag(num, 1, 0) OVER (ORDER BY num DESC) AS nextNum
+	FROM BOARD_CAFE) RESULT1
+WHERE num=54;
+
+
+	SELECT NUM, WRITER, TITLE,
+	LEAD(num, 1, 0) OVER (ORDER BY num DESC) AS nextNum,--번호에 대해서 내림차순 정렬 했을 때 하나 앞선다. 다음글
+	Lag(num, 1, 0) OVER (ORDER BY num DESC) AS prevNum,--번호에 대해서 내림차순 정렬 했을 때 하나 뒤에꺼. 이전글
+	FROM BOARD_CAFE 
+	ORDER BY NUM DESC;
+
+
+
 
 CREATE SEQUENCE board_cafe_seq;
 
