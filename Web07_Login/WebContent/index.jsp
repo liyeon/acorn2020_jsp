@@ -35,6 +35,13 @@
 		<li><a href="text/editer.jsp">스마트에디터테스트</a></li>
 		<li><a href="cafe/list.jsp">카페 글 목록 보기</a></li>
 		<li><a href="test/scroll.jsp">scroll테스트</a></li>
+		<li><a href="test/cookie_form.jsp">cookie테스트01</a></li>
+		<li><a href="test/cookie_form2.jsp">cookie테스트02</a></li>
+		<li><a href="test/cookie_form3.jsp">cookie테스트03</a></li>
+		<li><a href="test/popup.jsp">팝업 test01</a></li>
+		<li><a href="test/popup2.jsp">팝업 test02</a></li>
+		<li><a href="test/el_test.jsp">EL 테스트01</a></li>
+		<li><a href="test/jstl_test.jsp">JSTL 테스트01</a></li>
 	</ul>
 </div>
 
