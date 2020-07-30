@@ -95,6 +95,17 @@
 	if(totalPageCount < endPageNum){
 		endPageNum=totalPageCount; //보정해준다. 
 	}
+	
+	//EL에서 사용할 값을 미리 request에 담아두기
+	request.setAttribute("list", list);
+	request.setAttribute("startPageNum", startPageNum);
+	request.setAttribute("endPageNum", endPageNum);
+	request.setAttribute("pageNum", pageNum);
+	request.setAttribute("totalPageCount", totalPageCount);
+	request.setAttribute("condition", condition);
+	request.setAttribute("keyword", keyword);
+	request.setAttribute("encodedK", encodedK);
+	
 %>
 <div class="container mt-4">
 <h1>파일 목록입니다.</h1>
@@ -112,38 +123,50 @@
 			</tr>
 		</thead>
 		<tbody>
-		<%for(FileDto tmp:list){%>
+		<c:forEach var="tmp" items="${list }">
 			<tr>
-				<td><%=tmp.getNum() %></td>
-				<td><%=tmp.getWriter() %></td>
-				<td><%=tmp.getTitle() %></td>
-				<td><a href="download.jsp?num=<%=tmp.getNum() %>"><%=tmp.getOrgFileName() %></a></td>
-				<td><%=tmp.getFileSize() %></td>
-				<td><%=tmp.getRegdate() %></td>
+				<td>${tmp.num }</td>
+				<td>${tmp.writer }</td>
+				<td>${tmp.title }</td>
+				<td><a href="download.jsp?num=${tmp.num }">${tmp.orgFileName }</a></td>
+				<td><fmt:formatNumber value="${tmp.fileSize }" pattern="#,###"/>byte</td>
+				<td>${tmp.regdate }</td>
 				<td>
-					<%if(tmp.getWriter().equals(id)){ %>
-						<a href="private/delete.jsp?num=<%=tmp.getNum() %>">삭제</a>
-					<%} %>
+					<c:if test="${tmp.writer eq id }">
+						<a href="private/delete.jsp?num=${tmp.num }">삭제</a>
+					</c:if>
+				
 				</td>
 			</tr>
-		<%} %>
+		</c:forEach>
 		</tbody>
 	</table>
 	<div class="Page navigation" style="text-align : center;">
 		<ul class="pagination">
-		<%if(startPageNum != 1){ %>
-			<li class="page-item"><a class="page-link" href="list.jsp?pageNum=<%=startPageNum-1 %>&condition=<%=condition %>&keyword=<%=encodedK %>">Prev</a></li>
-		<%} %>
-		<%for(int i=startPageNum; i<=endPageNum; i++){ %>
-			<%if(i==pageNum){ %>
-				<li class="page-item active"><a class="page-link" href="list.jsp?pageNum=<%=i %>&condition=<%=condition %>&keyword=<%=encodedK %>"><%=i %></a></li>
-			<%}else{%>
-				<li class="page-item"><a class="page-link" href="list.jsp?pageNum=<%=i %>&condition=<%=condition %>&keyword=<%=encodedK %>"><%=i %></a></li>
-			<%} %>
-		<%} %>	
-		<%if(endPageNum < totalPageCount){ %>
-			<li class="page-item"><a class="page-link" href="list.jsp?pageNum=<%=endPageNum+1 %>&condition=<%=condition %>&keyword=<%=encodedK %>">Next</a></li>
-		<%} %>
+		<c:if test="${startPageNum ne 1 }">
+			<li class="page-item">
+			<a class="page-link" 
+			href="list.jsp?pageNum=${startPageNum - 1 }&condition=${condition }&keyword=${encodedK }">Prev</a></li>
+		</c:if>
+		<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }">
+			<c:choose>
+				<c:when test="${i eq pageNum }">
+				<li class="page-item active">
+				<a class="page-link" 
+				href="list.jsp?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a></li>
+				</c:when>
+				<c:otherwise>
+				<li class="page-item">
+				<a class="page-link" href="list.jsp?pageNum=${i }&condition=${condition }&keyword=${encodedK }">${i }</a>
+				</li>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${endPageNum lt totalPageCount }">
+			<li class="page-item">
+			<a class="page-link" 
+			href="list.jsp?pageNum=${endPageNum + 1 }&condition=${condition }&keyword=${encodedK }">Next</a></li>
+		</c:if>
 		</ul>
 	</div>
 	
@@ -153,12 +176,12 @@
 		<div class="input-group-prepend">
     		<label class="input-group-text" for="condition">검색조건</label>
 			<select name="condition" id="condition" class="custom-select">
-				<option value="title_filename" <%if(condition.equals("title_filename")){%>selected<%} %> >제목+파일명</option>
-				<option value="title" <%if(condition.equals("title")){%>selected<%} %> >제목</option>
-				<option value="writer" <%if(condition.equals("writer")){%>selected<%} %> >작성자</option>
+				<option value="title_filename" <c:if test="${condition eq 'title_filename' }">selected</c:if>>제목+파일명</option>
+				<option value="title" <c:if test="${condition eq 'title' }">selected</c:if>>제목</option>
+				<option value="writer" <c:if test="${condition eq 'writer' }">selected</c:if> >작성자</option>
 			</select>
 		</div>
-		<input value="<%=keyword %>" type="text" name="keyword" placeholder="검색어를 입력해주세요!" class="form-control" />
+		<input value="${keyword }" type="text" name="keyword" placeholder="검색어를 입력해주세요!" class="form-control" />
 		 	<div class="input-group-append">
 				<button type="submit" class="btn btn-outline-secondary">검색</button>
 			</div>

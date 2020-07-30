@@ -30,9 +30,37 @@
 	</ul>
 <h1>친구 목록입니다.(EL+JSTL 활용)</h1>
 	<ul>
-		<c:forEach var="tmp" items="${requestScope.list }">
-			<li>${tmp }</li>
+	<%--<c:forEach var="tmp" items="${requestScope.list }"> --%>
+		<c:forEach var="tmp" items="${list }" varStatus="status"> <%--status는 a,b 암거나 가능  숫자를 나타낼 때 사용한다. index값이 필요 할 때 사용--%>
+			<li data-index="${status.index }">${tmp } <strong>${status.index }</strong></li>
+			<%--자바스크립트에서 사용할 사용자 정의 속성 (data-index) --%>
 		</c:forEach>
 	</ul>
+	
+	
+	<h1>친구 목록입니다. 순서표시</h1>
+	<ul>
+	<%--<c:forEach var="tmp" items="${requestScope.list }"> --%>
+		<c:forEach var="tmp" items="${list }" varStatus="status"> <%--status는 a,b 암거나 가능  숫자를 나타낼 때 사용한다. index값이 필요 할 때 사용 count는 숫자가 1부터 시작--%>
+			<li data-index="${status.count }">${tmp } <strong>${status.count }</strong></li>
+			<%--자바스크립트에서 사용할 사용자 정의 속성 (data-index) --%>
+		</c:forEach>
+	</ul>
+	
+	<h1>친구 목록입니다. 첫번째인지여부</h1>
+	<ul>
+		<c:forEach var="tmp" items="${list }" varStatus="status">
+			<li>${tmp } <strong>첫번째 : ${status.first }</strong></li>
+		</c:forEach>
+	</ul>
+	
+	<h1>친구 목록입니다. 마지막인지여부</h1>
+	<ul>
+		<c:forEach var="tmp" items="${list }" varStatus="status">
+			<li>${tmp } <strong>마지막 : ${status.last }</strong></li>
+		</c:forEach>
+	</ul>
+	<a href="jstl_test3.jsp">다음예제</a>
+	
 </body>
 </html>
