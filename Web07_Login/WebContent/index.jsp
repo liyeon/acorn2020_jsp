@@ -52,6 +52,8 @@
 		<li><a href="test/popup2.jsp">팝업 test02</a></li>
 		<li><a href="test/el_test.jsp">EL 테스트01</a></li>
 		<li><a href="test/jstl_test.jsp">JSTL 테스트01</a></li>
+		<li><a href="test/regular_ex.jsp">정규표현식 테스트 1</a></li>
+		
 	</ul>
 </div>
 
