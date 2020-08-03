@@ -12,6 +12,7 @@
 <input type="text" id="id" placeholder="아이디를 입력해주세요!" />
 <button id="checkBtn">가입</button>
 <p>영문자 소문자로 시작하고 5~10글자 이내, 특수문자를 하나 이상 입력하세요? </p>
+<a href="regular_ex2.jsp">다음예제</a>
 <script src="${pageContext.request.contextPath }/js/jquery-3.5.1.js"></script>
 <script>
 	//영문자 소문자로 시작하는지 여부를 알아 낼 수 있는 정규 표현식 객체
@@ -36,12 +37,22 @@
 		if(result1){
 			alert("영문자 소문자로 시작했습니다.");
 		}
-		
+		//최소 다섯글자 ~최대 10글자
 		var result2=reg2.test(str);
 		if(result2){
 			alert("최소 5글자~최대 10글자 입니다!");
-		}else{
-			alert("최소 5글자~최대 10글자가 아닙니다.");
+		}
+		
+		//특수 문자가 포함되어 있는지를 검증한다.
+		var result3=reg3.test(str);
+		if(result3){
+			alert("특수문자가 포함되어있습니다.");
+		}
+		if(reg4.test(str)==false){
+			alert("영문자 소문자로 시작을 하고 최소 5글자~최대 10글자 이내로 작성해주세요!");
+		}
+		if(!reg4.test(str)){
+			alert("영문자 소문자로 시작을 하고 최소 5글자~최대 10글자 이내로 작성해주세요!");
 		}
 	});
 </script>
