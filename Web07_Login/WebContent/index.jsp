@@ -53,7 +53,10 @@
 		<li><a href="test/el_test.jsp">EL 테스트01</a></li>
 		<li><a href="test/jstl_test.jsp">JSTL 테스트01</a></li>
 		<li><a href="test/regular_ex.jsp">정규표현식 테스트 1</a></li>
-		
+		<li><a href="fortune">오늘의 운세[MVC 테스트]</a></li>
+		<li><a href="todo">할 일 목록 보기[MVC 테스트]</a></li>
+		<li><a href="file">파일 정보 보기[MVC 테스트]</a></li>
+		<li><a href="file_list">파일 목록 보기[MVC 테스트]</a></li>
 	</ul>
 </div>
 

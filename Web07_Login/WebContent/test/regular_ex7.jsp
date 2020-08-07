@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>regular_ex6</title>
+<title>regular_ex7</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 </head>
 <body>
 
 <div class="container">
-<h1>regular Expression6 테스트</h1>
+<h1>regular Expression7 테스트</h1>
 <form action="insert.jsp" method="post" id="myForm">
 	<div class="form-group">
 		<label for="id">아이디</label>
@@ -26,7 +26,7 @@
 	</div>
 	<button type="submit" class="btn btn-dark">가입</button>
 </form>
-<a href="regular_ex7.jsp" class="btn btn-info mt-4">다음예제</a>
+<a href="regular_ex8.jsp" class="btn btn-info mt-4">다음예제</a>
 </div>
 
 
@@ -47,15 +47,14 @@
 		//입력한 아이디를 읽어와서 검증한다.
 		var inputId = $("#id").val();
 		isIdValid =reg_id.test(inputId); 
+		//is-valid, is-invalid 클래스를 일단 제거 후
+		$(this).removeClass("is-valid is-invalid");
 		if(isIdValid){//아이디가 유효하다면
-			//is-invalid 클래스를 제거한다.
-			$(this).removeClass("is-invalid");
+			//is-valid 클래스를 추가한다.
 			$(this).addClass("is-valid");
 		}else{//아이디가 유효하지 않다면
 			//is-invalid 클래스를 추가한다.
-			$(this).removeClass("is-valid");
-			$(this).addClass("is-invalid");
-			
+			$(this).addClass("is-invalid");	
 		}
 	});
 	
@@ -63,16 +62,17 @@
 		//입력한 전화번호를 읽어와서 검증한다.
 		var inputPhone = $("#phone").val();
 		isPhoneValid=reg_phone.test(inputPhone);
+		//is-valid, is-invalid 클래스를 일단 제거 후
+		$(this).removeClass("is-valid is-invalid");
 		if(isPhoneValid){//번호가 유효하다면
-			//is-invalid 클래스를 제거한다.
-			$(this).removeClass("is-invalid");
+			//is-valid 클래스를 추가한다.
 			$(this).addClass("is-valid");
 		}else{//번호가 유효하지 않다면
 			//is-invalid 클래스를 추가한다.
-			$(this).removeClass("is-valid");
-			$(this).addClass("is-invalid");
+			$(this).addClass("is-invalid");	
 		}
 	});
+	
 	$("#myForm").on("submit", function(){
 		//폼 전체의 유효성 여부
 		isFormValid= isIdValid && isPhoneValid;
@@ -82,7 +82,7 @@
 	});
 	
 	//jquery를 사용하지 않을시
-
+/*
 	document.querySelector("#myFrom").addEventListener("submit", function(){
 		//폼전체의 유효성 여부
 		isFormValid= isIdValid && isPhoneValid;
@@ -92,7 +92,7 @@
 			event.preventDefault(); //jquery에선 return false가 대신 해준다.
 		}
 	});
-
+*/
 </script>
 </body>
 </html>
